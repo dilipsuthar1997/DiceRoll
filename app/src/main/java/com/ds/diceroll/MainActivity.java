@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -27,15 +28,17 @@ public class MainActivity extends AppCompatActivity {
         Button rollButton = findViewById(R.id.roll_button);
 
         final ImageView leftDice = findViewById(R.id.image_leftDice);
-
         final ImageView rightDice = findViewById(R.id.image_rightDice);
+
+        final TextView numberLeftDice = findViewById(R.id.tv_leftDice);
+        final TextView numberRightDice = findViewById(R.id.tv_rightDice);
 
         final int[] diceArray = {R.drawable.dice1,
                             R.drawable.dice2,
                             R.drawable.dice3,
                             R.drawable.dice4,
                             R.drawable.dice5,
-                            R.drawable.dice6,};
+                            R.drawable.dice6};
 
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,10 +51,14 @@ public class MainActivity extends AppCompatActivity {
 
                 leftDice.startAnimation(clockWise);
                 leftDice.setImageResource(diceArray[number]);
+                int i = number+1;
+                numberLeftDice.setText(String.valueOf(i));
 
                 number = randomNumber.nextInt(6);
                 rightDice.startAnimation(antiClockWise);
                 rightDice.setImageResource(diceArray[number]);
+                int j = number+1;
+                numberRightDice.setText(String.valueOf(j));
 
             }
         });
