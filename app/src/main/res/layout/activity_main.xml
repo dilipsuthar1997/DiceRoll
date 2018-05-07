@@ -101,7 +101,8 @@
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/button_text"
                     android:textColor="@android:color/white"
-                    android:textSize="26sp" />
+                    android:textSize="26sp"
+                    android:onClick="playDiceRoll"/>
 
 
             </RelativeLayout>
