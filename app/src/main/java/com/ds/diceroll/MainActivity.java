@@ -1,5 +1,6 @@
 package com.ds.diceroll;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +16,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Animation clockWise, antiClockWise;
-
+    MediaPlayer diceRoll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         clockWise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_clockwise);
         antiClockWise = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_anticlockwise);
+        diceRoll = MediaPlayer.create(this, R.raw.dice_roll);
 
         Button rollButton = findViewById(R.id.roll_button);
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                diceRoll.start();
                 Log.d("Dice", "Button has been pressed");
 
                 Random randomNumber = new Random();
